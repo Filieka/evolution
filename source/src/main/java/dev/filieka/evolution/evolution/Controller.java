@@ -1,6 +1,7 @@
 package dev.filieka.evolution.evolution;
 
 import javafx.fxml.FXML;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
@@ -18,14 +19,53 @@ public class Controller {
 
     // 以下是視窗的原件，包含button和canvas
     @FXML
-    private Button butt;
+    private Canvas canvas;
     @FXML
-    private TextArea text;
+    private TextArea repeatTimeText;
+    @FXML
+    private Button enterButton;
+    @FXML
+    private Button startButton;
+    @FXML
+    private Button pauseButton;
+    @FXML
+    private Button nextButton;
+    @FXML
+    private Button undoButton;
+    @FXML
+    private Button plusButton;
+    @FXML
+    private Button minusButton;
+    @FXML
+    private TextArea timeIntervalText;
 
     // 以下是元件被觸發會做的事
     @FXML
-    protected void testfunction() {
-        System.out.println("testfunction 執行");
-        text.setText("butt 被點擊");
+    protected void enterRepeatTime() {
+        System.out.println("enter 執行");
+    }
+    @FXML
+    protected void startRun(){
+        System.out.println("start 執行");
+    }
+    @FXML
+    protected void pauseAll(){
+        System.out.println("pause 執行");
+    }
+    @FXML
+    protected void nextStep(){
+        System.out.println("next 執行");
+    }
+    @FXML
+    protected void lestStep(){
+        System.out.println("undo 執行");
+    }
+    @FXML
+    protected void plusTimeInterval(){
+        System.out.println("plus 執行");
+    }
+    @FXML
+    protected void minusTimeInterval(){
+        System.out.println("minus 執行");
     }
 }

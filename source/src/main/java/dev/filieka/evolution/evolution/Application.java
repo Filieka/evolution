@@ -21,7 +21,7 @@ public class Application extends javafx.application.Application {
 
             Pane root = loader.load();  // 加載FXML
 
-            Scene scene = new Scene(root,1000,700);
+            Scene scene = new Scene(root,1050,810);
 
             // 4. 設置視窗標題
             primaryStage.setTitle("Evolution");
