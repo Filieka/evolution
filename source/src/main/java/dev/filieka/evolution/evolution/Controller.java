@@ -1,20 +1,26 @@
 package dev.filieka.evolution.evolution;
 
+import dev.filieka.evolution.evolution.datastruct.Board;
+import dev.filieka.evolution.evolution.datastruct.CanvasAction;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 
 public class Controller {
+    private Setting setting;
     private Model model;
 
-    public Controller(Model model) {
+    public Controller(Model model,Setting setting) {
+        this.setting = setting;
         this.model = model;
     }
 
     @FXML
     private void initialize() {
         // TODO: @FXML 注入後執行的初始化
+        CanvasAction.drawBoard(canvas,this.model.getNowBoard(),this.setting.getCellSize());
     }
 
     // 以下是視窗的原件，包含button和canvas
@@ -67,5 +73,19 @@ public class Controller {
     @FXML
     protected void minusTimeInterval(){
         System.out.println("minus 執行");
+    }
+    @FXML
+    protected void canvasClicked(MouseEvent event){
+        System.out.println("click 執行");
+        int clickedX = (int) event.getY(); // 點擊的x座標
+        int clickedY = (int) event.getX(); // 點擊的y座標
+        //坐標系方向問題
+        int row = clickedX/this.setting.getCellSize();
+        int column = clickedY/this.setting.getCellSize();
+
+        Board board = this.model.getNowBoard();
+        board.setBoardData(row,column,!board.getBoardData()[row][column]);
+
+        CanvasAction.drawBoard(canvas,this.model.getNowBoard(),this.setting.getCellSize());
     }
 }

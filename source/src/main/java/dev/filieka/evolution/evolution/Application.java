@@ -9,11 +9,12 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage primaryStage) {
         try {
+            Setting setting = new Setting(25);
             // 1. 創建模型和視圖的實例
             Model model = new Model();
 
             // 2. 創建控制器的實例
-            Controller controller = new Controller(model);
+            Controller controller = new Controller(model,setting);
 
             // 3. 加載FXML文件並設置控制器
             FXMLLoader loader = new FXMLLoader(getClass().getResource("evolution-view.fxml"));
