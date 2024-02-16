@@ -10,6 +10,21 @@ public class Board {
         this.boardData = new boolean[10][10];
     }
 
+    public Board(Board otherBoard) {
+        // 獲取另一個 Board 對象的 boardData 大小
+        int numRows = otherBoard.getBoardData().length;
+        int numCols = otherBoard.getBoardData()[0].length;
+
+        // 初始化新的 boardData
+        this.boardData = new boolean[numRows][numCols];
+
+        // 複製另一個 Board 對象的 boardData 到新的 boardData
+        for (int row = 0; row < numRows; row++) {
+            for (int col = 0; col < numCols; col++) {
+                this.boardData[row][col] = otherBoard.getBoardData()[row][col];
+            }
+        }
+    }
     public boolean[][] getBoardData(){
         return this.boardData;
     }
@@ -68,5 +83,14 @@ public class Board {
             }
         }
         this.boardData=target;
+    }
+    public void printBoardData() {
+        for (int row = 0; row < boardData.length; row++) {
+            for (int col = 0; col < boardData[row].length; col++) {
+                // 將布爾值轉換為字符串 "1" 或 "0"，並打印
+                System.out.print(boardData[row][col] ? "1" : "0");
+            }
+            System.out.println(); // 換行，移動到下一行
+        }
     }
 }

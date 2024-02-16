@@ -80,6 +80,7 @@ public class Controller {
     @FXML
     protected void nextStep(){
         System.out.println("next 執行");
+        this.model.getBeforeData().push(new Board( this.model.getNowBoard()));
         Board board=this.model.getNowBoard();
         board.evolution(canvas,this.setting.getCellSize());
         CanvasAction.drawBoard(canvas,this.model.getNowBoard(),this.setting.getCellSize());
@@ -87,6 +88,14 @@ public class Controller {
     @FXML
     protected void lestStep(){
         System.out.println("undo 執行");
+        Board board = this.model.getBeforeData().pop();
+
+        if (board==null) {
+            return;
+        }
+        this.model.setNowBoard(board);
+
+        CanvasAction.drawBoard(canvas,this.model.getNowBoard(),this.setting.getCellSize());
     }
     @FXML
     protected void plusTimeInterval(){
