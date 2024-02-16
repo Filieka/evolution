@@ -45,6 +45,24 @@ public class Controller {
     private Button minusButton;
     @FXML
     private Text timeIntervalText;
+    @FXML
+    private Button grid3Button;
+    @FXML
+    private Button grid5Button;
+    @FXML
+    private Button grid6Button;
+    @FXML
+    private Button grid10Button;
+    @FXML
+    private Button grid15Button;
+    @FXML
+    private Button grid25Button;
+    @FXML
+    private Button grid50Button;
+    @FXML
+    private Button grid75Button;
+    @FXML
+    private Button grid125Button;
 
     // 以下是元件被觸發會做的事
     @FXML
@@ -62,6 +80,9 @@ public class Controller {
     @FXML
     protected void nextStep(){
         System.out.println("next 執行");
+        Board board=this.model.getNowBoard();
+        board.evolution(canvas,this.setting.getCellSize());
+        CanvasAction.drawBoard(canvas,this.model.getNowBoard(),this.setting.getCellSize());
     }
     @FXML
     protected void lestStep(){
@@ -93,4 +114,61 @@ public class Controller {
 
         CanvasAction.drawBoard(canvas,this.model.getNowBoard(),this.setting.getCellSize());
     }
+    @FXML
+    protected  void setGridSize3(){
+        System.out.println("grid3 執行");
+        this.setting.setCellSize(250);
+        CanvasAction.drawBoard(canvas,this.model.getNowBoard(),this.setting.getCellSize());
+    }
+
+    @FXML
+    protected  void setGridSize5(){
+        System.out.println("grid5 執行");
+        this.setting.setCellSize(150);
+        CanvasAction.drawBoard(canvas,this.model.getNowBoard(),this.setting.getCellSize());
+    }
+    @FXML
+    protected  void setGridSize6(){
+        System.out.println("grid6 執行");
+        this.setting.setCellSize(125);
+        CanvasAction.drawBoard(canvas,this.model.getNowBoard(),this.setting.getCellSize());
+    }
+    @FXML
+    protected  void setGridSize10(){
+        System.out.println("grid10 執行");
+        this.setting.setCellSize(75);
+        CanvasAction.drawBoard(canvas,this.model.getNowBoard(),this.setting.getCellSize());
+    }
+    @FXML
+    protected  void setGridSize15(){
+        System.out.println("grid15 執行");
+        this.setting.setCellSize(50);
+        CanvasAction.drawBoard(canvas,this.model.getNowBoard(),this.setting.getCellSize());
+    }
+    @FXML
+    protected  void setGridSize25(){
+        System.out.println("grid25 執行");
+        this.setting.setCellSize(30);
+        CanvasAction.drawBoard(canvas,this.model.getNowBoard(),this.setting.getCellSize());
+    }
+    @FXML
+    protected  void setGridSize30(){
+        System.out.println("grid30 執行");
+        this.setting.setCellSize(25);
+        CanvasAction.drawBoard(canvas,this.model.getNowBoard(),this.setting.getCellSize());
+    }
+    @FXML
+    protected  void setGridSize50(){
+        System.out.println("grid50 執行");
+        this.setting.setCellSize(15);
+        CanvasAction.drawBoard(canvas,this.model.getNowBoard(),this.setting.getCellSize());
+    }
+    @FXML
+    protected  void setGridSize75(){
+        System.out.println("grid75 執行");
+        this.setting.setCellSize(10);
+        CanvasAction.drawBoard(canvas,this.model.getNowBoard(),this.setting.getCellSize());
+    }
+
+
 }

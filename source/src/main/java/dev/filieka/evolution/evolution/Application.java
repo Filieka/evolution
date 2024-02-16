@@ -9,9 +9,9 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Setting setting = new Setting(25,(float)0.5);
+            Setting setting = new Setting(75,(float)0.5);
             // 1. 創建模型和視圖的實例
-            Model model = new Model();
+            Model model = new Model(setting);
 
             // 2. 創建控制器的實例
             Controller controller = new Controller(model,setting);

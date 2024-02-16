@@ -4,26 +4,19 @@ import dev.filieka.evolution.evolution.datastruct.Board;
 
 public class Model {
     private Board nowBoard;
+    private Setting setting;
 
-    public Model(){
-        this.nowBoard = new Board();
+    public Model(Setting setting){
+        this.setting=setting;
+        this.nowBoard = new Board(this.setting);
     }
 
-    public boolean[][] test(){
-        return this.nowBoard.getBoardData();
-    }
 
     public Board getNowBoard() {
         return this.nowBoard;
     }
 
-    public void setNowBoard(Board board) {
-        this.nowBoard = board;
-    }
 
 
 
-    public void nextEvolution(){
-
-    }
 }

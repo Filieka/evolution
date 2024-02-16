@@ -3,7 +3,7 @@ package dev.filieka.evolution.evolution;
 public class Setting {
     private int cellSize;
     private float timeInterval;
-
+    public int canvasWidth = 750;
     public Setting(int cellSize,float timeInterval){
         this.cellSize=cellSize;
         this.timeInterval=timeInterval;
@@ -31,6 +31,10 @@ public class Setting {
         if(this.timeInterval<=0.1){
             this.timeInterval=(float)0.1;
         }
+    }
+
+    public void setCellSize(int cellSize){
+        this.cellSize=cellSize;
     }
 
 }
