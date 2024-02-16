@@ -9,7 +9,7 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Setting setting = new Setting(25);
+            Setting setting = new Setting(25,(float)0.5);
             // 1. 創建模型和視圖的實例
             Model model = new Model();
 

@@ -7,6 +7,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
 public class Controller {
     private Setting setting;
@@ -43,7 +44,7 @@ public class Controller {
     @FXML
     private Button minusButton;
     @FXML
-    private TextArea timeIntervalText;
+    private Text timeIntervalText;
 
     // 以下是元件被觸發會做的事
     @FXML
@@ -69,10 +70,14 @@ public class Controller {
     @FXML
     protected void plusTimeInterval(){
         System.out.println("plus 執行");
+        this.setting.plusTimeInterval();
+        timeIntervalText.setText(String.format("%.1f",(this.setting.getTimeInterval())));
     }
     @FXML
     protected void minusTimeInterval(){
         System.out.println("minus 執行");
+        this.setting.minusTimeInterval();
+        timeIntervalText.setText(String.format("%.1f",(this.setting.getTimeInterval())));
     }
     @FXML
     protected void canvasClicked(MouseEvent event){
